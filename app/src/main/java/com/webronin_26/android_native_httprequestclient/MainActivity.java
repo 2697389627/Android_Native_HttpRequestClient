@@ -19,13 +19,13 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView text_view;
 
-    private testHandler handler = new testHandler( new WeakReference<MainActivity>( MainActivity.this ) );
+    private MainActivityHandler handler = new MainActivityHandler( new WeakReference<MainActivity>( MainActivity.this ) );
 
-    private static class testHandler extends Handler {
+    private static class MainActivityHandler extends Handler {
 
         private WeakReference<MainActivity> mMainActivityWeakReference = null;
 
-        public testHandler( WeakReference<MainActivity> testActivityWeakReference ){
+        public MainActivityHandler( WeakReference<MainActivity> testActivityWeakReference ){
 
             mMainActivityWeakReference = testActivityWeakReference;
 
