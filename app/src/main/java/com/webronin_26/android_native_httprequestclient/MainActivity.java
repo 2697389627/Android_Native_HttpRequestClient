@@ -26,28 +26,20 @@ public class MainActivity extends AppCompatActivity {
         private WeakReference<MainActivity> mMainActivityWeakReference = null;
 
         public MainActivityHandler( WeakReference<MainActivity> testActivityWeakReference ){
-
             mMainActivityWeakReference = testActivityWeakReference;
-
         }
 
         @Override
         public void handleMessage(Message msg) {
 
             super.handleMessage(msg);
-
             MainActivity mMainActivity = mMainActivityWeakReference.get();
 
             if( mMainActivity != null ){
-
                 String str = ( String ) msg.obj;
-
                 mMainActivity.text_view.setText( str );
-
             }
-
         }
-
     }
 
     @Override
@@ -57,7 +49,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         text_view = findViewById(R.id.text_view);
-
         Button button = findViewById( R.id.button );
 
         button.setOnClickListener( new View.OnClickListener() {
@@ -66,25 +57,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 new Thread(new Runnable() {
-
                     @Override
                     public void run() {
 
                         String str = NativeSendRequest();
-
                         Message msg = handler.obtainMessage();
-
                         msg.obj = str;
-
                         handler.sendMessage( msg );
-
                     }
-
                 }).start();
-
             }
         });
-
     }
 
     public native String NativeSendRequest();

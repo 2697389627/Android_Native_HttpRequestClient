@@ -106,10 +106,7 @@ Java_com_webronin_126_android_1native_1httprequestclient_MainActivity_NativeSend
                 close(sockfd);
                 return env->NewStringUTF(httpResponse.c_str());
             }
-
             LOGD( "%s\n", buf );
-
         }
     }
-
 }
